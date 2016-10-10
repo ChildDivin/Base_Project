@@ -2,8 +2,8 @@
 //  APICall.swift
 //  AvailabilityManager_Freelancer
 //
-//  Created by TopsTech on 04/03/2015.
-//  Copyright (c) 2015 tops. All rights reserved.
+//  Created by Ilesh_Panchal on 04/03/2015.
+//  Copyright (c) 2015 Ilesh_Panchal. All rights reserved.
 //
 
 import UIKit
@@ -25,27 +25,25 @@ class APICall :NSObject {
     }
     
     func callApiUsingGET (urlPath: NSString, withLoader showLoader: Bool, successBlock success:(responceData:AnyObject)->Void) {
-
+        
         if(showLoader){
             AppDelegate().startSpinerWithOverlay(true)
         }
-
-        let manager = AFHTTPSessionManager()
+        
+        let manager = AFHTTPRequestOperationManager()
         let emptyDic = [String: String]()
         let urlPath1 = Global.g_APIBaseURL + (urlPath as String)
-      
-        
         let operation = manager.GET(urlPath1 as String, parameters: emptyDic, success: { (operations: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void in
-                if(showLoader) {
-                   AppDelegate().stopSpiner()
-                }
-              success(responceData: responseObject)
-            }) { (operation, error) -> Void in
-                if(showLoader) {
-                    AppDelegate().stopSpiner()
-                     StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
-                }
-                    print(error, terminator: "")
+            if(showLoader) {
+                AppDelegate().stopSpiner()
+            }
+            success(responceData: responseObject)
+        }) { (operation, error) -> Void in
+            if(showLoader) {
+                AppDelegate().stopSpiner()
+                StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
+            }
+            print(error, terminator: "")
         }
         operation!.start()
         
@@ -65,12 +63,12 @@ class APICall :NSObject {
                 AppDelegate().stopSpiner()
             }
             success(responceData: responseObject)
-            }) { (operation, error) -> Void in
-                if(showLoader) {
-                    AppDelegate().stopSpiner()
-                     StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
-                }
-                print(error, terminator: "")
+        }) { (operation, error) -> Void in
+            if(showLoader) {
+                AppDelegate().stopSpiner()
+                StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
+            }
+            print(error, terminator: "")
         }
         operation!.start()
         
@@ -89,18 +87,19 @@ class APICall :NSObject {
                 AppDelegate().stopSpiner()
             }
             success(responceData: responseObject)
-            }) { (operation, error) -> Void in
-                if(showLoader) {
-                    AppDelegate().stopSpiner()
-                     StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
-                }
-                print(error, terminator: "")
+        }) { (operation, error) -> Void in
+            if(showLoader) {
+                AppDelegate().stopSpiner()
+                StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
+            }
+            print(error, terminator: "")
         }
         operation!.start()
         
         
     }
     
+    //MAKR: POST METHODS WITH DIFFERENT FUNCTIONALITY
     func callApiUsingPOST (urlPath: NSString, withParameter dictData: NSMutableDictionary, withLoader showLoader: Bool, successBlock success:(responceData:AnyObject)->Void) {
         
         if(showLoader){
@@ -109,20 +108,45 @@ class APICall :NSObject {
         
         let urlPath1 = Global.g_APIBaseURL + (urlPath as String)
         let manager = AFHTTPRequestOperationManager()
-        
+        print("URL :\(urlPath1)")
         print("Parameter :\(dictData)")
         manager.POST(urlPath1 as String, parameters: dictData, success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void in
             if(showLoader) {
                 AppDelegate().stopSpiner()
             }
-             success(responceData: responseObject)
-            }) { (operation, error) -> Void in
-                if(showLoader) {
-                    AppDelegate().stopSpiner()
-                    StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
-                }
-                //success(responceData: responseObject)
-                print(error, terminator: "")
+            success(responceData: responseObject)
+        }) { (operation, error) -> Void in
+            if(showLoader) {
+                AppDelegate().stopSpiner()
+                StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
+            }
+            //success(responceData: responseObject)
+            print(error, terminator: "")
+        }
+    }
+    
+    func callApiUsingPOSTwithSpecificViewLoader (urlPath: NSString, withParameter dictData: NSMutableDictionary, withLoader showLoader: Bool,with view:UIView, successBlock success:(responceData:AnyObject)->Void) {
+        
+        if(showLoader){
+            AppDelegate().startSpinerWithOverlayINMyView(true, view: view)
+        }
+        
+        let urlPath1 = Global.g_APIBaseURL + (urlPath as String)
+        let manager = AFHTTPRequestOperationManager()
+        print("URL :\(urlPath1)")
+        print("Parameter :\(dictData)")
+        manager.POST(urlPath1 as String, parameters: dictData, success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void in
+            if(showLoader) {
+                AppDelegate().stopSpinerWithView(view)
+            }
+            success(responceData: responseObject)
+        }) { (operation, error) -> Void in
+            if(showLoader) {
+                AppDelegate().stopSpinerWithView(view)
+                StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
+            }
+            //success(responceData: responseObject)
+            print(error, terminator: "")
         }
     }
     
@@ -138,12 +162,12 @@ class APICall :NSObject {
         manager.POST(urlPath1 as String, parameters: dictData, success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void in
             
             success(responceData: responseObject)
-            }) { (operation, error) -> Void in
-                if(showLoader) {
-                    AppDelegate().stopSpiner()
-                    StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
-                }
-                print(error, terminator: "")
+        }) { (operation, error) -> Void in
+            if(showLoader) {
+                AppDelegate().stopSpiner()
+                StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
+            }
+            print(error, terminator: "")
         }
     }
     
@@ -160,24 +184,24 @@ class APICall :NSObject {
         var Timestamp: String {
             return "\(NSDate().timeIntervalSince1970 * 1000)"
         }
-
+        
         let operation =  manager.POST(urlPath1 as String, parameters: dictData, constructingBodyWithBlock: { (data:AFMultipartFormData!) -> Void in
-
+            
             let image1: UIImage? = image
-             if image1 != nil {
+            if image1 != nil {
                 data.appendPartWithFileData(UIImageJPEGRepresentation(image1!, 1)!, name: imageName as String, fileName: "\(Timestamp).png", mimeType: "image/png")
-             }
+            }
             }, success: { (operation, responseObject) -> Void in
                 if(showLoader) {
                     AppDelegate().stopSpiner()
                 }
                 success(responceData: responseObject)
-            }) { (operation, error) -> Void in
-                if(showLoader) {
-                    AppDelegate().stopSpiner()
-                     StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
-                }
-                print(error, terminator: "")
+        }) { (operation, error) -> Void in
+            if(showLoader) {
+                AppDelegate().stopSpiner()
+                StaticClass().notification("Red", message:"Oops,Check your connection and try again.")
+            }
+            print(error, terminator: "")
         }
         
         operation?.start()
@@ -206,10 +230,10 @@ class APICall :NSObject {
         
         let operation: AFImageRequestOperation = AFImageRequestOperation(request: request, success: {(image: UIImage!) -> Void in
             
-            let provider: CGDataProviderRef = CGImageGetDataProvider(image.CGImage)!
-
+            let provider: CGDataProviderRef = CGImageGetDataProvider(image.CGImage!)!
+            
             let imageData: NSData = (CGDataProviderCopyData(provider)) as! AnyObject as! NSData
-           // let imageData: NSData = UIImageJPEGRepresentation(image, 90)!
+            // let imageData: NSData = UIImageJPEGRepresentation(image, 90)!
             
             imageData.writeToFile("\(dataPath)/\(name)", atomically: true)
             success(response: filename)
@@ -223,14 +247,14 @@ class APICall :NSObject {
         
         let request: NSURLRequest = NSURLRequest(URL: NSURL(string: url)!)
         let fileoperation:AFHTTPRequestOperation = AFHTTPRequestOperation(request: request)
-       
+        
         let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         
         let filename = name
         let path = documentsURL.URLByAppendingPathComponent("MyFolder/\(filename)")
         
-        fileoperation.outputStream = NSOutputStream(toFileAtPath: path.path!, append: false)
-
+        fileoperation.outputStream = NSOutputStream(toFileAtPath: path!.path!, append: false)
+        
         fileoperation.setCompletionBlockWithSuccess({(operation: AFHTTPRequestOperation, responseObject: AnyObject) -> Void in
             print("GIF downloaded")
             }, failure: {(operation: AFHTTPRequestOperation, error: NSError) -> Void in
@@ -242,10 +266,10 @@ class APICall :NSObject {
 }
 
 /*
-http://192.168.3.16/idea_management/trunk/ws/user/upload_image
-
-idea_id
-
-image
-
-*/
+ http://192.168.3.16/idea_management/trunk/ws/user/upload_image
+ 
+ idea_id
+ 
+ image
+ 
+ */

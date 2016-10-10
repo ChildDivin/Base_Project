@@ -1,8 +1,8 @@
 //  Global.swift
 //  SwiftDemo
 //
-//  Created by TopsTech on 02/03/2015.
-//  Copyright (c) 2015 tops. All rights reserved.
+//  Created by Ilesh_Panchal on 02/03/2015.
+//  Copyright (c) 2015 Ilesh_Panchal. All rights reserved.
 
 
 struct Global {

@@ -72,4 +72,11 @@ extension NSDate {
         dateFormatter.dateFormat = format
         return dateFormatter.stringFromDate(self)
     }
+    
+    func DateAddDays(days:Int) -> NSDate {
+        let dayComponenet = NSDateComponents()
+        dayComponenet.day = days
+        let theCalendar = NSCalendar.currentCalendar()
+        return theCalendar.dateByAddingComponents(dayComponenet, toDate: self, options: NSCalendarOptions(rawValue: UInt(0)))!
+    }
 }

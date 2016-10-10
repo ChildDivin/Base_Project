@@ -39,7 +39,7 @@ extension String {
     }
     
     func convertTODateDDMMYYYY() -> NSDate{
-        //dateString = "2014-07-15 14:52:53"
+        //dateString = "01/01/2016"
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let date = dateFormatter.dateFromString(self)
