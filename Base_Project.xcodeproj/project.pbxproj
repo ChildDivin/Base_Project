@@ -51,6 +51,8 @@
 		E71443D71D9E81E600A96804 /* UINavigationController+Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71443CF1D9E81E600A96804 /* UINavigationController+Handler.swift */; };
 		E71443D81D9E81E600A96804 /* UITextField+Paddingview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71443D01D9E81E600A96804 /* UITextField+Paddingview.swift */; };
 		E71443D91D9E81E600A96804 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71443D11D9E81E600A96804 /* UIView+Shadow.swift */; };
+		E71AE9851DC1C886003344FE /* Array+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71AE9831DC1C886003344FE /* Array+Extra.swift */; };
+		E71AE9861DC1C886003344FE /* UIImageView+Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71AE9841DC1C886003344FE /* UIImageView+Shape.swift */; };
 		E7AB52EF1D8BB23000B3814C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AB52ED1D8BB23000B3814C /* Main.storyboard */; };
 		E7AB52F11D8BB23000B3814C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7AB52F01D8BB23000B3814C /* Assets.xcassets */; };
 		E7AB52F41D8BB23000B3814C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AB52F21D8BB23000B3814C /* LaunchScreen.storyboard */; };
@@ -133,6 +135,8 @@
 		E71443CF1D9E81E600A96804 /* UINavigationController+Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Handler.swift"; sourceTree = "<group>"; };
 		E71443D01D9E81E600A96804 /* UITextField+Paddingview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Paddingview.swift"; sourceTree = "<group>"; };
 		E71443D11D9E81E600A96804 /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		E71AE9831DC1C886003344FE /* Array+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extra.swift"; sourceTree = "<group>"; };
+		E71AE9841DC1C886003344FE /* UIImageView+Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Shape.swift"; sourceTree = "<group>"; };
 		E7AB52E61D8BB23000B3814C /* Base_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Base_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AB52EE1D8BB23000B3814C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7AB52F01D8BB23000B3814C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 		E71443C91D9E81E600A96804 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E71AE9831DC1C886003344FE /* Array+Extra.swift */,
+				E71AE9841DC1C886003344FE /* UIImageView+Shape.swift */,
 				E71443CA1D9E81E600A96804 /* IKUILabel+Extra.swift */,
 				E71443CB1D9E81E600A96804 /* NSDate+Differnce.swift */,
 				E71443CC1D9E81E600A96804 /* NSDictionry+NilHandler.swift */,
@@ -611,6 +617,7 @@
 				E71443A91D9E81CF00A96804 /* Luhn.m in Sources */,
 				E71443AC1D9E81CF00A96804 /* HPGrowingTextView.m in Sources */,
 				E71443AA1D9E81CF00A96804 /* CAPSPageMenu.swift in Sources */,
+				E71AE9851DC1C886003344FE /* Array+Extra.swift in Sources */,
 				E71443D91D9E81E600A96804 /* UIView+Shadow.swift in Sources */,
 				E71443B91D9E81CF00A96804 /* IQToolbar.m in Sources */,
 				E71443BA1D9E81CF00A96804 /* IQUIView+IQKeyboardToolbar.m in Sources */,
@@ -637,6 +644,7 @@
 				E7AB530B1D8BB37700B3814C /* Global.swift in Sources */,
 				E71443B01D9E81CF00A96804 /* IQUITextFieldView+Additions.m in Sources */,
 				E71443BF1D9E81CF00A96804 /* ShareAvailibility.swift in Sources */,
+				E71AE9861DC1C886003344FE /* UIImageView+Shape.swift in Sources */,
 				E71443B21D9E81CF00A96804 /* IQUIViewController+Additions.m in Sources */,
 				E7AB53091D8BB37700B3814C /* StaticClass.swift in Sources */,
 				E71443BD1D9E81CF00A96804 /* NIDropDown.m in Sources */,
