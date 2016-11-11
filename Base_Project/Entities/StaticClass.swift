@@ -374,7 +374,23 @@ class StaticClass {
                 return false
             }
         }
-        
+        /**
+         if StaticClass().isUsernameValid_aA9("ilesh panchal", WithAccept: " "){
+         print("Valid")
+         }
+         OUTPUT:- //Valid
+         StaticClass().isUsernameValid_aA9("ilesh_panchal", WithAccept: "_")//Valid
+         StaticClass().isUsernameValid_aA9("ilesh_panchal", WithAccept: "")//Not Valid
+         */
+        func isUsernameValid_aA9(strUser:String,WithAccept Charecter:String) -> Bool{
+            let characterset = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789\(Charecter)")
+            if strUser.rangeOfCharacterFromSet(characterset.invertedSet) != nil {
+                print("string contains special characters")
+                return false
+            }else{
+                return true
+            }
+        }
         func isBookingType(str: String) -> String {
             //booking_type 1 - Hotel 2 - Spa 3- Home 4- Office 5 - Private Event 6 - Wedding
             if str == "6" {
@@ -461,6 +477,16 @@ class StaticClass {
                 
             }
             
+        }
+        func fontDisplayAllFonts() -> Void {
+            for family: String in UIFont.familyNames()
+            {
+                print("\(family)")
+                for names: String in UIFont.fontNamesForFamilyName(family)
+                {
+                    print("== \(names)")
+                }
+            }
         }
         
         /*func removeTimeFromDate (date: NSDate) -> NSDate {
